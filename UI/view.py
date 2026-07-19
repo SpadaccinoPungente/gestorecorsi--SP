@@ -30,9 +30,18 @@ class View(ft.UserControl):
         self._page.controls.append(self._title)
 
         #ROW1
-        self.ddPD = ft.Dropdown(label="Periodo Didattico",
-                                options = [ft.dropdown.Option("I"), ft.dropdown.Option("II")],
-                                width=200)
+        # self.ddPD = ft.Dropdown(label="Periodo Didattico",
+        #                         options = [ft.dropdown.Option("I"), ft.dropdown.Option("II")],
+        #                         width=200)
+        # in questa maniera non devo poi convertire manualmente dopo
+        self.ddPD = ft.Dropdown(
+            label="Periodo Didattico",
+            options=[
+                ft.dropdown.Option(key="1", text="I"),
+                ft.dropdown.Option(key="2", text="II")
+            ],
+            width=200
+        )
         self.btnPrintCorsiPD = ft.ElevatedButton(text="Stampa Corsi",
                                                  on_click=self._controller.handlePrintCorsiPD,
                                                  width=300)

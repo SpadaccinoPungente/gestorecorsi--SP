@@ -43,6 +43,7 @@ class Controller:
         self._view.update_page()
 
     def handlePrintIscrittiCorsiPD(self, e):
+        """
         self._view.txt_result.controls.clear()
 
         pd = self._view.ddPD.value
@@ -57,6 +58,19 @@ class Controller:
             pdInt = 1
         else:
             pdInt = 2
+        """
+
+        self._view.txt_result.controls.clear()
+
+        pd = self._view.ddPD.value
+
+        if pd is None:
+            self._view.create_alert("Attenzione, selezionare un periodo didattico.")
+            self._view.update_page()
+            return
+
+        # Converte direttamente la stringa ("1" o "2") in intero
+        pdInt = int(pd)
 
         corsi = self._model.getCorsiPDwIscritti(pdInt)
 
